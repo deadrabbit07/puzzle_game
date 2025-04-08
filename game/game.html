@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="../setting.css">
+</head>
+
+<body>
+
+    <main>
+        <div class="codeBar">
+
+            <div class="explan">
+                <div class="develo">
+                    <img src="../images/develo.png" alt="develo">
+                </div>
+                <P class="develo_chat">
+                    <!-- 안녕 <span class="user_name">user_name</span>!
+                    <br>난 너의 퍼즐을 도와줄 develo 라고해! -->
+                    <!-- 먼저 그림을 완성하기 위해 그라데이션으로 배경색을 입혀보자!
+                    <br>background 또는 background-color 속성을 통해 배경색을 정할 수 있지? -->
+                    <!-- 그라데이션 효과를 내기위해서는 background 또는 background-image 속성 작성 후 linear-gradient(black, white) 형식으로 입력하면 -->
+                </P>
+            </div>
+
+            <div class="btn_wrap">
+                <a href="./stage.html" class="goStage">스테이지로</a>
+                <div class="hint">힌트!</div>
+                <a href="./game2.html" class="next">다음 단계</a>
+            </div>
+
+            <div class="code_box">
+
+                <div class="code_wrap">
+                    <ul class="numbering">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li>13</li>
+                        <li>14</li>
+                        <li>15</li>
+                    </ul>
+                    <div class="code_write">
+                        <div class="exam">/* 그라디언트 효과를 위에서 아래로, 위에는 skyblue, 아래는 white로 색상을 지정해줘 */</div>
+                        <div class="hint_msg">/* background 또는 background-image 속성을 통해 그라디언트를 사용할 수 있어
+                            <br>예를 들면 background: linear-gradient(black, white) 처럼,
+                            <br>참고로 기본적으로 위에서 아래로 그라디언트 효과가 적용돼! */
+                        </div>
+                        <br>
+                        <pre>.background {</pre>
+                            <textarea type="text" id="code_box"></textarea>
+                            <pre>}</pre>
+                    </div>
+                </div>
+
+
+                <div class="complete_btn">
+                    완료
+                </div>
+            </div>
+        </div>
+        <div class="running_wrap">
+            <div class="target_el">
+
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <script src="game.js">
+
+    </script>
+</body>
+
+</html>

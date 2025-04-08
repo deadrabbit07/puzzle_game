@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="./nextStage2.css">
+    <link rel="stylesheet" href="../setting.css">
+</head>
+
+<body>
+
+    <main>
+        <div class="codeBar">
+
+            <div class="explan">
+                <div class="develo">
+                    <img src="../images/develo.png" alt="develo">
+                </div>
+                <P class="develo_chat">
+
+                </P>
+            </div>
+
+            <div class="btn_wrap">
+                <a href="./stage.html" class="goStage">스테이지로</a>
+                <div class="hint">힌트!</div>
+            </div>
+
+            <div class="code_box">
+
+                <div class="code_wrap">
+                    <ul class="numbering">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li>13</li>
+                        <li>14</li>
+                        <li>15</li>
+                        <li>16</li>
+                        <li>17</li>
+                        <li>18</li>
+                        <li>19</li>
+                        <li>20</li>
+                    </ul>
+                    <div class="code_write">
+                        <div class="exam">/* visibility 속성을 js로 변경해서 보이게 해줘! */</div>
+                        <div class="hint_msg">/* js에서는 setAttribute로도 css 속성을 변경할 수 있어
+                            <br>setAttribute는 여러 속성을 js에서 간편하게 바꿀 수 있지..
+                            <br>'style' 다음에 오는 따옴표에는 css 속성을 세미콜론까지 포함해서 똑같이 적어주면 돼!
+                            <br>또한 visibility 속성을 활용하여 요소를 보이게 하려면 visible 속성을 주면 돼! */
+                        </div>
+                        <br>
+                        <pre>const people = document.querySelector('.people');</pre>
+                        <pre>people.setAttribute('style', ' <textarea type="text" class="user_code input1"></textarea> ')</pre>
+                        <!-- <div class="attribute_wrap">
+                            <div class="user_attribute">left:  </div>
+                            <textarea type="text" class="user_code input2"></textarea>    
+                        </div> -->
+
+                    </div>
+                </div>
+
+
+                <div class="complete_btn">
+                    완료
+                </div>
+            </div>
+        </div>
+        <div class="running_wrap">
+            <div class="target_el">
+                <div class="cloud"></div>
+                <div class="people">
+
+                </div>
+                <div class="earth">
+                    <img class="tree" src="../images/tree.png" alt="tree">
+                </div>
+            </div>
+        </div>
+
+        <img src="../images/people.png" alt="" class="people">
+
+    </main>
+
+
+    <script>
+
+
+        const input = document.querySelector('.user_code');
+        const develo = document.querySelector('.develo img');
+        const develoChat = document.querySelector('.develo_chat');
+        const targetEl = document.querySelector('.target_el');
+        const input1 = document.querySelector('.input1');
+        const input2 = document.querySelector('.input2');
+
+        const people = document.querySelector('.people')
+
+
+
+
+        let correct = 'visibility: visible';
+        document.querySelector('.complete_btn').addEventListener('click', () => {
+
+            document.querySelector('.people').setAttribute('style', `${input1.value};`);
+
+            setTimeout(() => {
+                if (correct == input1.value.toLowerCase()) {
+                    document.querySelector('.next').style.display = 'inline-block';
+                    develoChat.innerHTML = `질헸어! 다음 단계로 넘어가려면 다음 단계 버튼을 눌러줘!`;
+                } else {
+                    develoChat.innerHTML = `뭔가 잘못된것 같아 다시 한 번 해볼래?`;
+                }
+            }, 500);
+        });
+
+
+
+
+
+
+        develoChat.innerHTML = `${localStorage.getItem('ninkname')}, 이제 정말 마지막이야`;
+
+        let clickValue = 0;
+        const chatContent = [`사람과 전 스테이지에서 만들었던 배경을 합치는거야 ! ! !`
+            , `html, css는 완성되었는데...`
+            , `.people_wrap에 .people을 넣어야 화면에서 보일거야`
+            , `js로 .people_wrap에 .people을 넣어줘!`
+            , `잘 모르겠다면 여태 그랬듯 힌트 버튼을 눌러줘!`
+        ]
+
+        document.querySelector('.develo_chat').addEventListener('click', () => {
+            console.log(chatContent.length, clickValue);
+
+            if (chatContent.length < clickValue + 1) {
+                return;
+            } else {
+                develoChat.textContent = chatContent[clickValue];
+                clickValue++;
+            }
+        })
+
+
+        document.querySelector('.hint').addEventListener('click', () => {
+
+
+            document.querySelector('.hint_msg').style.display = 'inline-block';
+            develoChat.innerHTML = `2번줄에 주석을 확인해줘!`;
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

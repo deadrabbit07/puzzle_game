@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="./nextStage.css">
+    <link rel="stylesheet" href="../setting.css">
+</head>
+
+<body>
+
+    <main>
+        <div class="codeBar">
+
+            <div class="explan">
+                <div class="develo">
+                    <img src="../images/develo.png" alt="develo">
+                </div>
+                <P class="develo_chat">
+
+                </P>
+            </div>
+
+            <div class="btn_wrap">
+                <a href="./stage.html" class="goStage">스테이지로</a>
+                <div class="hint">힌트!</div>
+            </div>
+
+            <div class="code_box">
+
+                <div class="code_wrap">
+                    <ul class="numbering">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li>13</li>
+                        <li>14</li>
+                        <li>15</li>
+                        <li>16</li>
+                        <li>17</li>
+                        <li>18</li>
+                        <li>19</li>
+                        <li>20</li>
+                    </ul>
+                    <div class="code_write">
+                        <div class="exam">/* visibility 속성을 js로 변경해서 보이게 해줘! */</div>
+                        <div class="hint_msg">/* js에서는 setAttribute로도 css 속성을 변경할 수 있어
+                            <br>setAttribute는 여러 속성을 js에서 간편하게 바꿀 수 있지..
+                            <br>'style' 다음에 오는 따옴표에는 css 속성을 똑같이 적어주면 돼!
+                            <br>또한 visibility 속성을 활용하여 요소를 보이게 하려면 visible 속성을 주면 돼! */
+                        </div>
+                        <br>
+                        <pre>const people = document.querySelector('.people');</pre>
+                        <pre>people.setAttribute('style', ' <textarea type="text" class="user_code input1"></textarea> ')</pre>
+                        <!-- <div class="attribute_wrap">
+                            <div class="user_attribute">left:  </div>
+                            <textarea type="text" class="user_code input2"></textarea>    
+                        </div> -->
+
+                    </div>
+                </div>
+
+
+                <div class="complete_btn">
+                    완료
+                </div>
+            </div>
+        </div>
+        <div class="running_wrap">
+            <div class="target_el">
+                <img src="../images/people.png" alt="" class="people">
+                <!-- <div class="people">
+                    <div class="head"></div>
+                    <div class="body">
+                        <div class="right"></div>
+                        <div class="left"></div>
+                    </div>
+                    <div class="leg">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="congrats">
+            <h1>ddd 축하해</h1>
+            <p>아직은 2스테이지 1단계까지 완성되었지만, 후에 더 많은 스테이지가 추가 된 후 다시 보길 바래 ! ! !</p>
+            <div class="goHome"><a href="../index.html">홈으로</a></div>
+        </div>
+
+    </main>
+
+
+    <script>
+
+
+        const input = document.querySelector('.user_code');
+        const develo = document.querySelector('.develo img');
+        const develoChat = document.querySelector('.develo_chat');
+        const targetEl = document.querySelector('.target_el');
+        const input1 = document.querySelector('.input1');
+        const input2 = document.querySelector('.input2');
+
+
+
+
+        let correct = 'visibility: visible';
+        document.querySelector('.complete_btn').addEventListener('click', () => {
+
+            document.querySelector('.people').setAttribute('style', `${input1.value};`);
+
+            setTimeout(() => {
+                if (correct == input1.value.toLowerCase()) {
+                    document.querySelector('.congrats h1').textContent = `${localStorage.getItem('ninkname')} 축하해!`
+                    document.querySelector('.congrats').style.display = 'flex';
+                    develoChat.innerHTML = `질헸어! `;
+                } else {
+                    develoChat.innerHTML = `뭔가 잘못된것 같아 다시 한 번 해볼래?`;
+                }
+            }, 500);
+        });
+
+
+
+
+
+
+        develoChat.innerHTML = `${localStorage.getItem('ninkname')} 안녕!`;
+
+        let clickValue = 0;
+        const chatContent = [`이번 스테이지에서는 사람을 보이게 할거야!`
+            , `지금 visibility 가 hidden으로 되어 있어서 사람이 보이지 않아...`
+            , `visibility 속성을 js로 변경해서 보이게 해줘!`
+            , `잘 모르겠다면 힌트 버튼을 눌러줘!`
+        ]
+
+        document.querySelector('.develo_chat').addEventListener('click', () => {
+            console.log(chatContent.length, clickValue);
+
+            if (chatContent.length < clickValue + 1) {
+                return;
+            } else {
+                develoChat.textContent = chatContent[clickValue];
+                clickValue++;
+            }
+        })
+
+
+        document.querySelector('.hint').addEventListener('click', () => {
+
+
+            document.querySelector('.hint_msg').style.display = 'inline-block';
+            develoChat.innerHTML = `2번줄에 주석을 확인해줘!`;
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

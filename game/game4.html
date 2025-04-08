@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="./game4.css">
+    <link rel="stylesheet" href="../setting.css">
+</head>
+
+<body>
+
+    <main>
+        <div class="codeBar">
+
+            <div class="explan">
+                <div class="develo">
+                    <img src="../images/develo.png" alt="develo">
+                </div>
+                <P class="develo_chat">
+
+                </P>
+            </div>
+
+            <div class="btn_wrap">
+                <a href="./stage.html" class="goStage">스테이지로</a>
+                <div class="hint">힌트!</div>
+                <a href="./nextStage.html" class="next">다음 스테이지</a>
+            </div>
+
+            <div class="code_box">
+
+                <div class="code_wrap">
+                    <ul class="numbering">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li>13</li>
+                        <li>14</li>
+                        <li>15</li>
+                        <li>16</li>
+                        <li>17</li>
+                        <li>18</li>
+                        <li>19</li>
+                        <li>20</li>
+                    </ul>
+                    <div class="code_write">
+                        <div class="exam">/* 나무의 위치는 왼쪽으로부터 10%정도 떨어져있고 땅 위에 붙어있으면 돼! */</div>
+                        <div class="hint_msg">/* 먼저 postition에서 위치를 조정할때에는 top, bottom, left, right 등등 사용할 수 있어
+                            <br>또한 .tree는 .earth 아래에 있기 때문에 100%는 .earth의 값을 그대로 가져올거야, 이걸 잘 활용해봐 */
+                        </div>
+                        <br>
+                        <pre>.earth > .tree {</pre>
+                        <span class="details">width: 100px;</span>
+                        <br><span class="details">position: absolute;</span>
+                        <div class="attribute_wrap">
+                            <div class="user_attribute">bottom:  </div>
+                            <textarea type="text" class="user_code input1"></textarea>    
+                        </div>
+                        <div class="attribute_wrap">
+                            <div class="user_attribute">left:  </div>
+                            <textarea type="text" class="user_code input2"></textarea>    
+                        </div>
+
+                        <pre>}</pre>
+                    </div>
+                </div>
+
+
+                <div class="complete_btn">
+                    완료
+                </div>
+            </div>
+        </div>
+        <div class="running_wrap">
+            <div class="target_el">
+                <div class="cloud"></div>
+                <div class="earth">
+                    <img class="tree" src="../images/tree.png" alt="tree">
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <script>
+
+
+        const input = document.querySelector('.user_code');
+        const develo = document.querySelector('.develo img');
+        const develoChat = document.querySelector('.develo_chat');
+        const targetEl = document.querySelector('.target_el');
+        const input1 = document.querySelector('.input1');
+        const input2 = document.querySelector('.input2');
+
+
+        let correct = '100%';
+        let correct2 = '10%';
+        document.querySelector('.complete_btn').addEventListener('click', () => {
+
+            document.querySelector('.tree').setAttribute('style', `bottom: ${input1.value}; left: ${input2.value};`);
+
+            setTimeout(() => {
+                if (correct == input1.value.toLowerCase() && correct2 == input2.value.toLowerCase()) {
+                    document.querySelector('.next').style.display = 'inline-block';
+                    develoChat.innerHTML = `질헸어! 다음 스테이지로 넘어가려면 다음 스테이지 버튼을 눌러줘!`;
+                } else {
+                    develoChat.innerHTML = `뭔가 잘못된것 같아 다시 한 번 해볼래?`;
+                }
+            }, 500);
+        });
+
+
+
+
+
+
+        develoChat.innerHTML = `${localStorage.getItem('ninkname')}! 벌써 마지막이야`;
+
+        let clickValue = 0;
+        const chatContent = [`마지막으로 나무로 땅을 꾸며줄거야!`
+            , `나무의 위치는 왼쪽으로부터 10%정도 떨어져있고 땅 위에 붙어있으면 돼!`
+            , `혹시 모르겠다면 힌트 버튼을 눌러줘!`
+        ]
+
+        document.querySelector('.develo_chat').addEventListener('click', () => {
+            console.log(chatContent.length, clickValue);
+
+            if (chatContent.length < clickValue + 1) {
+                return;
+            } else {
+                develoChat.textContent = chatContent[clickValue];
+                clickValue++;
+            }
+        })
+
+
+        document.querySelector('.hint').addEventListener('click', () => {
+
+
+            document.querySelector('.hint_msg').style.display = 'inline-block';
+            develoChat.innerHTML = `2번줄에 주석을 확인해줘!`;
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

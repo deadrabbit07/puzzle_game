@@ -1,0 +1,133 @@
+
+
+
+.wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.user_inform{
+    display: flex;
+    flex-direction: column;
+}
+.profile{
+    width: 250px;
+    height: 300px;
+    background-color: white;
+    border: 1px solid #111111;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* position: absolute;
+    top: 25%;
+    left: 10%; */
+}
+.profile_img{
+    width: 150px;
+    height: 150px;
+    background-color: #ddd;
+    border: 1px solid #111;
+    border-radius: 100%;
+    margin: 25px 0 20px 0;
+}
+.profile p {
+    font-weight: 400;
+}
+.ninkname{
+    text-align: center;
+    margin: 3px 0 0 0;
+    font-size: 32px;
+}
+
+.profile_bottom{
+    display: flex;
+    margin: 10px 0 0 0 ;
+    /* position: absolute;
+    bottom: 25%;
+    left: 10%; */
+}
+.goHome{
+    width: calc(250px / 2 - 5px);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #111;
+    border-radius: 15px;
+}
+.goHome2{
+    width: calc(250px / 2 - 5px);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #111;
+    border-radius: 15px;
+    margin: 0 0 0 10px;
+}
+.profile_bottom a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.stage_wrap{
+    /* width: 800px;
+    height: 500px; */
+    display: flex;
+    gap: 20px;
+    /* position: absolute; */
+    /* background-color: #ddd; */
+    /* border: 1px solid rgb(255, 0, 0); */
+}
+.stage_wrap .stage_block{
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+    font-size: 24px;
+    cursor: pointer;
+    transition: .3s;
+}
+.stage_wrap .stage_block:hover{
+    transform: scale(1.05);
+}
+.stage_wrap .stage_block.lock::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: rgb(0, 0, 0, 0.4);
+    position: absolute;
+    z-index: 3;
+    backdrop-filter: blur(1px);
+}
+.stage_wrap .stage_block.lock::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/webApp_lock.png);
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    z-index: 5
+}
+.wrap1{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}

@@ -1,0 +1,265 @@
+
+
+
+
+
+
+
+/* .logo>img {
+    width: 400px;
+    display: inline-block;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 100;
+} */
+
+.background {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #FFAE16; */
+}
+.logo{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 100;
+    font-size: 100px;
+    font-weight: 900;
+}
+.logo::after{
+    content: "";
+    display: inline-block;
+    background-image: url(./images/logo.png);
+    background-size: cover;
+    background-position: center;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    top: -5px;
+    right: 100px;
+    z-index: -1;
+    /* transform: rotate(-30deg); */
+}
+
+.play {
+    position: absolute;
+    z-index: 100;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+    font-size: 40px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    transition: .3s;
+    animation: playAni 1s infinite;
+}
+.play:hover{
+    opacity: .8;
+}
+.play::after {
+    content: "";
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    width: 10px;
+    height: 10px;
+    transform: rotate(-45deg);
+}
+
+@keyframes playAni {
+    0%{
+        transform: translate(-50%, 0);
+    }
+    50%{
+        transform: translate(-50%, 10px);
+    }
+    100%{
+        transform: translate(-50%, 0);
+    }
+}
+
+.back_animation>li {
+    transition: .3s;
+    list-style: none;
+}
+
+.back_animation>li div {
+    transition: .3s;
+}
+
+.back_animation>.block1 {
+    width: 145px;
+    height: 145px;
+    background-color: #3985FF;
+    position: absolute;
+    z-index: 98;
+    bottom: 2px;
+    left: 145px;
+}
+
+.back_animation>.block1 div {
+    width: 100%;
+    height: 100%;
+    background-color: #3985FF;
+    position: absolute;
+    z-index: 98;
+    bottom: 100%;
+    right: 0;
+}
+
+.back_animation>.block2 {
+    width: calc(145px * 2);
+    height: 145px;
+    background-color: #FF6634;
+    position: absolute;
+    z-index: 98;
+    bottom: 295px;
+    left: calc(144px * 3);
+}
+
+.back_animation>.block2 div {
+    /* content: ""; */
+    width: calc(100% / 2);
+    height: 100%;
+    background-color: #FF6634;
+    position: absolute;
+    right: 0;
+}
+
+.back_animation>.block3 {
+    width: 145px;
+    height: calc(145px * 2);
+    background-color: #FFE434;
+    position: absolute;
+    z-index: 98;
+    bottom: calc(145px + 4px);
+    right: calc(145px * 2);
+}
+
+.back_animation>.block3 div {
+    /* content: ""; */
+    width: 100%;
+    height: calc(100% / 2);
+    background-color: #FFE434;
+    position: absolute;
+    z-index: 98;
+    bottom: calc(100% / 2);
+    left: 100%;
+}
+
+
+.profile_window{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 300px;
+    
+    padding: 20px;
+    background-color: white;
+    box-shadow: 5px 5px 7px 5px rgb(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    z-index: 100;
+    transition: .5s;
+
+    opacity: 0;
+    display: none;
+}
+.profile_window .topWrap{
+    width: 100%;
+    height: 15px;
+    position: relative;
+    margin: -5px 0 5px 0;
+}
+.profile_window .closeBtn{
+    background-image: url(./images/closeBtn.png);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+}
+
+
+.profile_window .align_wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+}
+
+.profile_window .left_align{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.profile_window .s-logo{
+    font-size: 40px;
+    margin: 0 0 5px 0;
+}
+.profile_window .alert{
+    font-size: 18px;
+}
+.profile_window #summit{
+    background-color: #000000;
+    border: unset;
+    color: white;
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+    margin: 15px 0px 0 0;
+}
+
+
+
+.profile_window .right_align{
+    height: 80%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.profile_window .profile_img{
+    width: 120px;
+    height: 120px;
+    background-color: #ddd;
+    border-radius: 100%;
+}
+.profile_window #ninkname{
+    width: 80%;
+    height: 20px;
+    border: unset;
+    border-bottom: 1px solid #111;
+    background-color: transparent;
+    outline: none;  /* 포커스 시 생기는 윤곽선 제거 */
+    transition: .3s;
+}
+.profile_window #ninkname:focus{
+    border-bottom: 1px solid black;
+}
+
+.profile_window .bottomWrap{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
